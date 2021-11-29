@@ -16,15 +16,15 @@ void loop() {
   /* Мигаем светодиодом , а в паузах спим */
   digitalWrite(13, HIGH);
 
-  Watchdog.enable(INTERRUPT_MODE, WDT_PRESCALER_128); // Режим прерываний , таймаут ~1c
-  sleep_enable();                                     // Разрешаем сон
-  sleep_cpu();                                        // Уходим в сон
+  Watchdog.enable(ISR_MODE, WDT_TIMEOUT_1S); // Режим прерываний , таймаут ~1c
+  sleep_enable();                            // Разрешаем сон
+  sleep_cpu();                               // Уходим в сон
 
   digitalWrite(13, LOW);
 
-  Watchdog.enable(INTERRUPT_MODE, WDT_PRESCALER_128); // Режим прерываний , таймаут ~1c
-  sleep_enable();                                     // Разрешаем сон
-  sleep_cpu();                                        // Уходим в сон
+  Watchdog.enable(ISR_MODE, WDT_TIMEOUT_1S); // Режим прерываний , таймаут ~1c
+  sleep_enable();                            // Разрешаем сон
+  sleep_cpu();                               // Уходим в сон
 
 }
 

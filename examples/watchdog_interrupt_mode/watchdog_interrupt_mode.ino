@@ -8,7 +8,7 @@
 void setup() {
   Serial.begin(9600);
   pinMode(13, OUTPUT);
-  Watchdog.enable(INTERRUPT_MODE, WDT_PRESCALER_128); // Режим генерации прерываний , таймаут ~1с
+  Watchdog.enable(ISR_MODE, WDT_TIMEOUT_1S); // Режим генерации прерываний , таймаут ~1с
 }
 
 void loop() {

@@ -11,10 +11,10 @@
 void setup() {
   Serial.begin(9600);
   Serial.println("Program started");
-  Watchdog.enable(INTERRUPT_RESET_MODE, WDT_PRESCALER_128);   // Комбинированный режим , таймаут ~1c
+  Watchdog.enable(ISR_RST_MODE, WDT_TIMEOUT_1S);   // Комбинированный режим , таймаут ~1c
   Serial.println("watchdog enabled");
-  while (1);                                                  // Причина зависания
-  Serial.println("loop started");                             // Этого мы не увидим из-за зависания
+  while (1);                                       // Причина зависания
+  Serial.println("loop started");                  // Этого мы не увидим из-за зависания
 }
 
 void loop() {

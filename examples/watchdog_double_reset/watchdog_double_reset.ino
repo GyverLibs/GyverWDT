@@ -7,9 +7,9 @@
 */
 
 void setup() {
-  Serial.begin(9600);                                         // На этом последовательном порту у нас wifi-модуль
-  pinMode(8, INPUT);                                          // Этот пин сбрасывает wifi-модуль при переходе в режим OUTPUT
-  Watchdog.enable(INTERRUPT_RESET_MODE, WDT_PRESCALER_1024);  // Комбинированный сторжевой режим , таймаут ~8с
+  Serial.begin(9600);                             // На этом последовательном порту у нас wifi-модуль
+  pinMode(8, INPUT);                              // Этот пин сбрасывает wifi-модуль при переходе в режим OUTPUT
+  Watchdog.enable(ISR_RST_MODE, WDT_TIMEOUT_8S);  // Комбинированный сторжевой режим , таймаут ~8с
 }
 
 
@@ -24,8 +24,8 @@ void serialEvent() {
 
 /* Если wifi-модуль не отправлял нам что то более 8с - он завис */
 ISR(WATCHDOG) {
-  pinMode(8, OUTPUT);                                         // Тянем за reset модуля
-  Watchdog.enable(INTERRUPT_RESET_MODE, WDT_PRESCALER_1024);  // Если мы не смогли перенастроить watchdog - значит мы зависли
-  Watchdog.reset();                                           // Если не зависли - сбросить watchdog и продолжить
-  pinMode(8, INPUT);                                          // Отпускаем reset модуля
+  pinMode(8, OUTPUT);                              // Тянем за reset модуля
+  Watchdog.enable(ISR_RST_MODE, WDT_TIMEOUT_8S);   // Если мы не смогли перенастроить watchdog - значит мы зависли
+  Watchdog.reset();                                // Если не зависли - сбросить watchdog и продолжить
+  pinMode(8, INPUT);                               // Отпускаем reset модуля
 }

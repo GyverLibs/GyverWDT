@@ -8,7 +8,7 @@
 
 void setup() {
   pinMode(13, OUTPUT);
-  Watchdog.enable(RESET_MODE, WDT_PRESCALER_512); // Режим сторжевого сброса , таймаут ~4с
+  Watchdog.enable(RST_MODE, WDT_TIMEOUT_4S); // Режим сторжевого сброса , таймаут ~4с
 }
 
 void loop() {

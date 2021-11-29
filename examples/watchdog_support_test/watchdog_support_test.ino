@@ -15,7 +15,7 @@ void setup() {
   Serial.println("Program started , wait 10 seconds");
   delay(10000);                                             // 10 секунд на перепрошивку в случае bootloop
 
-  Watchdog.enable(RESET_MODE, WDT_PRESCALER_1024);          // Режим сторжевого сброса , таймаут ~8с
+  Watchdog.enable(RST_MODE, WDT_TIMEOUT_8S);          		// Режим сторжевого сброса , таймаут ~8с
   Serial.println("watchdog enabled");
 
   while (1) {                                               // Бесконечный цикл , эмуляция "зависания"
