@@ -1,3 +1,5 @@
+This is an automatic translation, may be incorrect in some places. See sources and examples!
+
 # GyverWDT
 Library for WDT control on AVR ATmega328p/32U4/2560 & ATtiny85/84/167
 - Setting the WDT operation mode
