@@ -92,6 +92,7 @@
     defined(__AVR_ATmega168P__) || \
     defined(__AVR_ATmega328P__) || \
     defined(__AVR_ATmega32u4__) || \
+    defined(__AVR_ATmega32U4__) || \
     defined(__AVR_ATmega1280__) || \
     defined(__AVR_ATmega2560__) || \
     defined(__AVR_ATtiny87__) ||   \
